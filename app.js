@@ -1,13 +1,20 @@
-var express = require('express');
-var evh = require('express-vhost');
-var app = express();
+var evh = require('express-vhost'),
+    express = require('express');
 
-app
-.use(evh.vhost('api.infestus.cc', (req, res) => {
-   res.send('Hello api.infestus.cc');
-}))
+var appFactory = function(echo) {
+    var app = express();
+    app.get('/', function(req, res) {
+        res.send(echo);
+    });
 
-.use(evh.vhost('apinew.infestus.cc', (req,res) => {
-  res.send('Hello apinew.infestus.cc');
-}))
-.listen(3000);
+    return app;
+};
+
+var server = express();
+server.use(evh.vhost(server.enabled('trust proxy')));
+server.listen(port);
+
+evh.register('api.infestus.cc', appFactory('test1'));
+var app2 = appFactory('test2');
+evh.register('apinew.infestus.cc', app2);
+//evh.register('*.test2-local', appFactory('test2'));
