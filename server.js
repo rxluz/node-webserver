@@ -2,12 +2,12 @@ var evh = require('express-vhost'),
     express = require('express');
 
 var appFactory = function(echo) {
-    var app = express();
-    app.get('/', function(req, res) {
+    var appTest = express();
+    appTest.get('/', function(req, res) {
         res.send(echo);
     });
 
-    return app;
+    return appTest;
 };
 
 var server = express();
