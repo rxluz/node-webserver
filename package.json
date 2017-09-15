@@ -1,0 +1,22 @@
+{
+  "name": "node_webserver_ubuntu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rxluz/node-webserver.git"
+  },
+  "author": "Ricardo Luz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rxluz/node-webserver/issues"
+  },
+  "homepage": "https://github.com/rxluz/node-webserver#readme",
+  "dependencies": {
+    "express": "^4.15.4"
+  }
+}
