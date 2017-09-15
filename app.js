@@ -1,23 +1,12 @@
-const express= require('express');
-
+var express = require('express');
 var app = express();
 
-app.get('/', (req, res) => {
-  res.send({
-    hello: 'World'
-  });
-});
+app
+.use(express.vhost('api.infestus.cc', (req, res) => {
+   res.send('Hello api.infestus.cc');
+}))
 
-
-app.listen(3000);
-
-var otherapp = express();
-
-otherapp.get('/', (req, res) => {
-  res.send({
-    hello: 'World 2'
-  });
-});
-
-
-otherapp.listen(3001);
+.use(express.vhost('apinew.infestus.cc', (req,res) => {
+  res.send('Hello apinew.infestus.cc');
+}))
+.listen(3000);
