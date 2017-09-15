@@ -12,7 +12,7 @@ var appFactory = function(echo) {
 
 var server = express();
 server.use(evh.vhost(server.enabled('trust proxy')));
-server.listen(port);
+server.listen(3000);
 
 evh.register('api.infestus.cc', appFactory('test1'));
 var app2 = appFactory('test2');
