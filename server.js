@@ -10,11 +10,14 @@ var appFactory = function(echo) {
     return appTest;
 };
 
+
+infestus_api_app=require('./apps/infestus.api/app.js');
+
 var server = express();
 server.use(evh.vhost(server.enabled('trust proxy')));
 server.listen(3000);
 
-evh.register('api.infestus.cc', require('./apps/infestus.api/app.js'));
+evh.register('api.infestus.cc', infestus_api_app);
 var app2 = appFactory('test2');
 evh.register('apinew.infestus.cc', app2);
 //evh.register('*.test2-local', appFactory('test2'));
