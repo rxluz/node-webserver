@@ -18,6 +18,7 @@
   "homepage": "https://github.com/rxluz/node-webserver#readme",
   "dependencies": {
     "express": "^4.15.4",
+    "express-vhost": "^0.2.0",
     "vhost": "^3.0.2"
   }
 }
